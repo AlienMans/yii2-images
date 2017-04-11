@@ -79,7 +79,8 @@ class Module extends \yii\base\Module
     {
      
         $modelName = $this->getShortClass($model);
-        $modelDir = \yii\helpers\Inflector::pluralize($modelName).'/'. $modelName . $model->id;
+        $tbl_primaryKey = $model->getTableSchema()->primaryKey[0];
+        $modelDir = \yii\helpers\Inflector::pluralize($modelName).'/'. $modelName . $model->$tbl_primaryKey;
         return $modelDir;
 
      
